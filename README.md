@@ -1,13 +1,13 @@
 # Wordpress Plugin - MyPay for Woocommerce
 
-=== MyPay For Woocommerce ===
-Contributors: mypaynepal,wwwbijay
-Tags: woocommerce, mypay
-Requires at least: 5.0
-Tested up to: 6.1.1
-Stable tag: 1.2.1
-License: GPLv3 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+=== MyPay For Woocommerce ===<br />
+Contributors: mypaynepal,wwwbijay<br />
+Tags: woocommerce, mypay<br />
+Requires at least: 5.0<br />
+Tested up to: 6.1.1<br />
+Stable tag: 1.2.1<br />
+License: GPLv3 or later<br />
+License URI: https://www.gnu.org/licenses/gpl-3.0.html<br />
 
 This is a wordpress plugin to add [MyPay](https://mypay.com.np/) digital wallet to WooCommerce.
 Please notice that [WooCommerce](https://wordpress.org/plugins/woocommerce/) must be installed and active.
