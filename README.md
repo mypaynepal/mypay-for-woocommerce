@@ -26,4 +26,6 @@ MyPay is a digital wallet in Nepal that was established in the year 2021. Since 
 5. Click on MyPay option, check testmode and enter your test Merchant ID, User Name, API access password, API Key, provided my us.
 6. Click on save changes and complete a MyPay wallet transaction to pass the test
 7. If you pass the test, Go to keys section in your merchant account, you can get your Live Merchant ID, User Name, API access password, API Key.
-8. Enter your live Merchant ID, User Name, API access password, API Key, and click save changes
+8. Enter your live Merchant ID, User Name, API access password, API Key, and click save changes.
+
+For more information, visit: [MyPay](https://mypay.com.np)
