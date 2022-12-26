@@ -20,10 +20,10 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 		$this->id = 'mypay';
 
 		// Setup general properties.
-		$this->setup_properties();
+		$this->mypayfw_setup_properties();
 
 		// Load the settings.
-		$this->init_form_fields();
+		$this->mypayfw_init_form_fields();
 		$this->init_settings();
 
 		// Get settings.
@@ -53,92 +53,92 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 	/**
 	 * Setup general properties for the gateway.
 	 */
-	protected function setup_properties() {
+	protected function mypayfw_setup_properties() {
 		$this->id                 = 'mypay';
 		$this->icon               = apply_filters( 'woocommerce_mypay_icon', plugins_url('../assets/icon.png', __FILE__ ) );
-		$this->method_title       = __( 'MyPay Mobile Payments', 'mypay-payments-woo' );
-		$this->api_key            = __( 'Add API Key', 'mypay-payments-woo' );
-		$this->widget_id          = __( 'Add Widget ID', 'mypay-payments-woo' );
-		$this->method_description = __( 'Have your customers pay with MyPay Mobile Payments.', 'mypay-payments-woo' );
+		$this->method_title       = __( 'MyPay Mobile Payments', 'mypay-for-woocommerce' );
+		$this->api_key            = __( 'Add API Key', 'mypay-for-woocommerce' );
+		$this->widget_id          = __( 'Add Widget ID', 'mypay-for-woocommerce' );
+		$this->method_description = __( 'Have your customers pay with MyPay Mobile Payments.', 'mypay-for-woocommerce' );
 		$this->has_fields         = false;
 	}
 
 	/**
 	 * Initialise Gateway Settings Form Fields.
 	 */
-	public function init_form_fields() {
+	public function mypayfw_init_form_fields() {
 		$this->form_fields = array(
 			'enabled'            => array(
-				'title'       => __( 'Enable/Disable', 'mypay-payments-woo' ),
-				'label'       => __( 'Enable MyPay Mobile Payments', 'mypay-payments-woo' ),
+				'title'       => __( 'Enable/Disable', 'mypay-for-woocommerce' ),
+				'label'       => __( 'Enable MyPay Mobile Payments', 'mypay-for-woocommerce' ),
 				'type'        => 'checkbox',
 				'description' => '',
 				'default'     => 'no',
 			),
 			'title'              => array(
-				'title'       => __( 'Title', 'mypay-payments-woo' ),
+				'title'       => __( 'Title', 'mypay-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'MyPay Mobile Payment method description that the customer will see on your checkout.', 'mypay-payments-woo' ),
-				'default'     => __( 'MyPay Mobile Payments', 'mypay-payments-woo' ),
+				'description' => __( 'MyPay Mobile Payment method description that the customer will see on your checkout.', 'mypay-for-woocommerce' ),
+				'default'     => __( 'MyPay Mobile Payments', 'mypay-for-woocommerce' ),
 				'desc_tip'    => true,
 			),
 			'description'        => array(
-				'title'       => __( 'Description', 'mypay-payments-woo' ),
+				'title'       => __( 'Description', 'mypay-for-woocommerce' ),
 				'type'        => 'textarea',
-				'description' => __( 'MyPay Mobile Payment method description that the customer will see on your website.', 'mypay-payments-woo' ),
-				'default'     => __( 'MyPay Mobile Payments before delivery.', 'mypay-payments-woo' ),
+				'description' => __( 'MyPay Mobile Payment method description that the customer will see on your website.', 'mypay-for-woocommerce' ),
+				'default'     => __( 'MyPay Mobile Payments before delivery.', 'mypay-for-woocommerce' ),
 				'desc_tip'    => true,
 			),
 			'instructions'       => array(
-				'title'       => __( 'Instructions', 'mypay-payments-woo' ),
+				'title'       => __( 'Instructions', 'mypay-for-woocommerce' ),
 				'type'        => 'textarea',
-				'description' => __( 'Thank you for Payment using Mypay Digital Wallet.', 'mypay-payments-woo' ),
-				'default'     => __( 'Thank you for Payment using Mypay Digital Wallet.', 'mypay-payments-woo' ),
+				'description' => __( 'Thank you for Payment using Mypay Digital Wallet.', 'mypay-for-woocommerce' ),
+				'default'     => __( 'Thank you for Payment using Mypay Digital Wallet.', 'mypay-for-woocommerce' ),
 				'desc_tip'    => true,
 			),
 			'testmode' => array(
-				'title' => __( 'Test Mode', 'mypay-payments-woo' ),
-				'label' => __( 'Enable Test Mode', 'mypay-payments-woo' ),
+				'title' => __( 'Test Mode', 'mypay-for-woocommerce' ),
+				'label' => __( 'Enable Test Mode', 'mypay-for-woocommerce' ),
 				'type' => 'checkbox',
 				'description' => __( 'If checked then the transaction will be sent with Test flag set to true.', 'wc-gateway-bambora' ),
 				'default' => 'no',
 				'desc_tip'    => true
 			),
 			'merchantid' => array(
-				'title' => __( 'Merchant ID', 'mypay-payments-woo' ),
+				'title' => __( 'Merchant ID', 'mypay-for-woocommerce' ),
 				'type' => 'text',
-				'description' => __( 'MyPay Merchant ID', 'mypay-payments-woo' ),
+				'description' => __( 'MyPay Merchant ID', 'mypay-for-woocommerce' ),
 				'desc_tip'    => true
 			),
 			'username' => array(
-				'title' => __( 'User Name', 'mypay-payments-woo' ),
+				'title' => __( 'User Name', 'mypay-for-woocommerce' ),
 				'type' => 'text',
-				'description' => __( 'MyPay Merchant User Name', 'mypay-payments-woo' ),
+				'description' => __( 'MyPay Merchant User Name', 'mypay-for-woocommerce' ),
 				'desc_tip'    => true
 			),
 			'password' => array(
-				'title' => __( 'API access password', 'mypay-payments-woo' ),
+				'title' => __( 'API access password', 'mypay-for-woocommerce' ),
 				'type' => 'text',
 				'description' => __( 'MyPay API access password' ),
 				'desc_tip'    => true
 			),
 			'api_key'             => array(
-				'title'       => __( 'API Key', 'mypay-payments-woo' ),
+				'title'       => __( 'API Key', 'mypay-for-woocommerce' ),
 				'type'        => 'text',
-				'description' => __( 'Add your API key', 'mypay-payments-woo' ),
+				'description' => __( 'Add your API key', 'mypay-for-woocommerce' ),
 				'desc_tip'    => true,
 			),
 			'enable_for_methods' => array(
-				'title'             => __( 'Enable for shipping methods', 'payleo-payments-woo' ),
+				'title'             => __( 'Enable for shipping methods', 'mypay-for-woocommerce' ),
 				'type'              => 'multiselect',
 				'class'             => 'wc-enhanced-select',
 				'css'               => 'width: 400px;',
 				'default'           => '',
-				'description'       => __( 'If payleo is only available for certain methods, set it up here. Leave blank to enable for all methods.', 'payleo-payments-woo' ),
-				'options'           => $this->load_shipping_method_options(),
+				'description'       => __( 'If mypay is only available for certain methods, set it up here. Leave blank to enable for all methods.', 'mypay-for-woocommerce' ),
+				'options'           => $this->mypay_load_shipping_method_options(),
 				'desc_tip'          => true,
 				'custom_attributes' => array(
-					'data-placeholder' => __( 'Select shipping methods', 'payleo-payments-woo' ),
+					'data-placeholder' => __( 'Select shipping methods', 'mypay-for-woocommerce' ),
 				),
 			)
 			);	
@@ -149,7 +149,7 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 	 *
 	 * @return bool
 	 */
-	public function is_available() {
+	public function mypayfw_is_available() {
 		$order          = null;
 		$needs_shipping = false;
 
@@ -185,17 +185,17 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 			$chosen_shipping_methods_session = WC()->session->get( 'chosen_shipping_methods' );
 
 			if ( $order_shipping_items ) {
-				$canonical_rate_ids = $this->get_canonical_order_shipping_item_rate_ids( $order_shipping_items );
+				$canonical_rate_ids = $this->mypayfw_get_canonical_order_shipping_item_rate_ids( $order_shipping_items );
 			} else {
-				$canonical_rate_ids = $this->get_canonical_package_rate_ids( $chosen_shipping_methods_session );
+				$canonical_rate_ids = $this->mypayfw_get_canonical_package_rate_ids( $chosen_shipping_methods_session );
 			}
 
-			if ( ! count( $this->get_matching_rates( $canonical_rate_ids ) ) ) {
+			if ( ! count( $this->mypayfw_get_matching_rates( $canonical_rate_ids ) ) ) {
 				return false;
 			}
 		}
 
-		return parent::is_available();
+		return parent::mypayfw_is_available();
 	}
 
 	/**
@@ -203,7 +203,7 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 	 *
 	 * @return bool
 	 */
-	private function is_accessing_settings() {
+	private function mypayfw_is_accessing_settings() {
 		if ( is_admin() ) {
 			// phpcs:disable WordPress.Security.NonceVerification
 			if ( ! isset( $_REQUEST['page'] ) || 'wc-settings' !== $_REQUEST['page'] ) {
@@ -228,9 +228,9 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 	 *
 	 * @return array
 	 */
-	private function load_shipping_method_options() {
+	private function mypay_load_shipping_method_options() {
 		// Since this is expensive, we only want to do it if we're actually on the settings page.
-		if ( ! $this->is_accessing_settings() ) {
+		if ( ! $this->mypayfw_is_accessing_settings() ) {
 			return array();
 		}
 
@@ -249,7 +249,7 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 			$options[ $method->get_method_title() ] = array();
 
 			// Translators: %1$s shipping method name.
-			$options[ $method->get_method_title() ][ $method->id ] = sprintf( __( 'Any &quot;%1$s&quot; method', 'mypay-payments-woo' ), $method->get_method_title() );
+			$options[ $method->get_method_title() ][ $method->id ] = sprintf( __( 'Any &quot;%1$s&quot; method', 'mypay-for-woocommerce' ), $method->get_method_title() );
 
 			foreach ( $zones as $zone ) {
 
@@ -264,10 +264,10 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 					$option_id = $shipping_method_instance->get_rate_id();
 
 					// Translators: %1$s shipping method title, %2$s shipping method id.
-					$option_instance_title = sprintf( __( '%1$s (#%2$s)', 'mypay-payments-woo' ), $shipping_method_instance->get_title(), $shipping_method_instance_id );
+					$option_instance_title = sprintf( __( '%1$s (#%2$s)', 'mypay-for-woocommerce' ), $shipping_method_instance->get_title(), $shipping_method_instance_id );
 
 					// Translators: %1$s zone name, %2$s shipping method instance name.
-					$option_title = sprintf( __( '%1$s &ndash; %2$s', 'mypay-payments-woo' ), $zone->get_id() ? $zone->get_zone_name() : __( 'Other locations', 'mypay-payments-woo' ), $option_instance_title );
+					$option_title = sprintf( __( '%1$s &ndash; %2$s', 'mypay-for-woocommerce' ), $zone->get_id() ? $zone->get_zone_name() : __( 'Other locations', 'mypay-for-woocommerce' ), $option_instance_title );
 
 					$options[ $method->get_method_title() ][ $option_id ] = $option_title;
 				}
@@ -285,7 +285,7 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 	 * @param  array $order_shipping_items  Array of WC_Order_Item_Shipping objects.
 	 * @return array $canonical_rate_ids    Rate IDs in a canonical format.
 	 */
-	private function get_canonical_order_shipping_item_rate_ids( $order_shipping_items ) {
+	private function mypayfw_get_canonical_order_shipping_item_rate_ids( $order_shipping_items ) {
 
 		$canonical_rate_ids = array();
 
@@ -304,7 +304,7 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 	 * @param  array $chosen_package_rate_ids Rate IDs as generated by shipping methods. Can be anything if a shipping method doesn't honor WC conventions.
 	 * @return array $canonical_rate_ids  Rate IDs in a canonical format.
 	 */
-	private function get_canonical_package_rate_ids( $chosen_package_rate_ids ) {
+	private function mypayfw_get_canonical_package_rate_ids( $chosen_package_rate_ids ) {
 
 		$shipping_packages  = WC()->shipping()->get_packages();
 		$canonical_rate_ids = array();
@@ -329,7 +329,7 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 	 * @param array $rate_ids Rate ids to check.
 	 * @return boolean
 	 */
-	private function get_matching_rates( $rate_ids ) {
+	private function mypayfw_get_matching_rates( $rate_ids ) {
 		// First, match entries in 'method_id:instance_id' format. Then, match entries in 'method_id' format by stripping off the instance ID from the candidates.
 		return array_unique( array_merge( array_intersect( $this->enable_for_methods, $rate_ids ), array_intersect( $this->enable_for_methods, array_unique( array_map( 'wc_get_string_before_colon', $rate_ids ) ) ) ) );
 	}
@@ -345,13 +345,13 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 		$order = wc_get_order( $order_id );
 
 		if( $order->get_total() < 0 ){
-			$woocommerce->add_error(__('Order total must be greater than 0', 'mypay-payments-woo'));
+			$woocommerce->add_error(__('Order total must be greater than 0', 'mypay-for-woocommerce'));
 			return true;
 			die();
 		}
 
 		if(trim($this->merchantid)=='' || trim($this->password)==''){
-			$woocommerce->add_error(__('Merchant information not set for this store.', 'mypay-payments-woo'));
+			$woocommerce->add_error(__('Merchant information not set for this store.', 'mypay-for-woocommerce'));
 			return true;
 			die();
 		}
@@ -370,7 +370,7 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 
 		$order_id= $order->get_id() . $constant;
 	
-		$body = [ 
+		$body = [
 		  'Amount'  => $total,
 		  'OrderId' => $order_id,
 		  'UserName' => $this->username,
@@ -400,20 +400,18 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 			// $response_body = wp_remote_retrieve_body( $response );
 			$redirect_url = $response_body['RedirectURL'];
 
-			var_dump("redirect_url done...");
-
-				update_post_meta( $order->id, '_merchant_transaction_id', $response_body['MerchantTransactionId'] );
+		
+				$response_body_mt_id = sanitize_text_field(wp_unslash($response_body['MerchantTransactionId']) );
+				update_post_meta( $order->id, '_merchant_transaction_id', $response_body_mt_id );
 				update_post_meta( $order->id, '_payment_gateway_name', 'mypay' );
 				update_post_meta( $order->id, '_payment_merchant_id', $this->merchantid );
 
-				var_dump("Update Post meta done...");
+			
 				
 				// $order->payment_complete();
-				
-				var_dump("Payment Complete done...");
+		
 				// Remove cart.
-				 
-				 var_dump("cart removed done...");
+			
 
 				$success_note = 'MyPay payment Initiated...'
 				. 'Merchant transaction id: '
@@ -432,7 +430,7 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 		}else{
 
 			$res_status = "failed" ;
-			var_dump($res_status);
+		
 
 			$decline_note = 'MyPay payment declined';
 
@@ -457,7 +455,7 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 	public function thankyou_page( $order_id) {
 	
 		if (isset($_GET['MerchantTransactionId'])) {
-			echo $_GET['MerchantTransactionId'];
+			echo wp_unslash( $_GET['MerchantTransactionId']);
 	
 		}
 		if ( $this->instructions ) {
@@ -502,7 +500,7 @@ class WC_Gateway_MyPay extends WC_Payment_Gateway {
 
 			WC()->cart->empty_cart();
 
-			$transaction_id = $_GET["MerchantTransactionId"];
+			$transaction_id = wp_unslash( $_GET['MerchantTransactionId'] );
 			
 			global $wpdb;
 			$order_id = $wpdb->get_var( $wpdb->prepare( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_merchant_transaction_id' AND meta_value = '%s' ", $transaction_id ) );
